@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -49,7 +50,7 @@ public class ProductController {
 		return productService.getAllProducts();
 	}
 	
-	@GetMapping("/op")
+	@GetMapping("/getProOrMan")
 	public List<Product> getProductNameorManuArea(@RequestParam(required = false) String name,@RequestParam(required = false) String manArea){
 		return productService.getProductNameorManuArea(name,manArea);
 	}
@@ -75,6 +76,11 @@ public class ProductController {
 	 @DeleteMapping("/delete/{id}")
 	 public String deleteProduct(@PathVariable long id) {
 		 return productService.deleteProductbyid(id);
+	 }
+	 
+	 @PatchMapping("/updateSpecific")
+	 public Product updateSpecificColumn(@RequestBody Product product) {
+		 return productService.updateSpecificColumn(product);
 	 }
 		
 	

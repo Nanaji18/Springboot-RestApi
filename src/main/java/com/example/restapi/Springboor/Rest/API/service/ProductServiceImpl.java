@@ -71,4 +71,23 @@ public class ProductServiceImpl implements ProductService {
 		
 	}
 
+	@Override
+	public Product updateSpecificColumn(Product product) {
+		return productRepository.findById(product.getId())
+	            .map(existingProduct -> {
+	                if (product.getName() != null) {
+	                    existingProduct.setName(product.getName());
+	                }
+	                if (product.getManArea() != null) {
+	                    existingProduct.setManArea(product.getManArea());
+	                }
+	                if (product.getPrice() != null) {
+	                    existingProduct.setPrice(product.getPrice());
+	                }
+	                return productRepository.save(existingProduct);
+	            })
+	            .orElseThrow(() -> new RuntimeException("Product not found with ID: " + product.getId()));
+	  
+	}
+
 }
