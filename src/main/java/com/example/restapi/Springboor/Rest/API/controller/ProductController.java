@@ -41,6 +41,11 @@ public class ProductController {
         return "<h1>Morukurthi Nanaji</h1>";
 	}
 	
+	@GetMapping("/name/nani1")
+	public String getNameOfOwner1() {
+        return "<h1>Morukurthi Nanaji</h1>+<h1>Morukurthi Raju</h1>";
+	}
+	
 	@PostMapping("/save")
 	public Product saveProduct(@RequestBody Product p) {
 		return productService.saveProduct(p);
