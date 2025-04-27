@@ -19,4 +19,8 @@ public interface ProductService {
 
 	public Page<Product> searchProducts(String name, int page,int size,String sortBy,String direction);
 
+	public Product updateProduct(Product product);
+
+	public String deleteProductbyid(long id);
+
 }
