@@ -23,4 +23,6 @@ public interface ProductService {
 
 	public String deleteProductbyid(long id);
 
+	public Product updateSpecificColumn(Product product);
+
 }
